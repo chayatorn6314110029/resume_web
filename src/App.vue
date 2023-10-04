@@ -29,8 +29,9 @@ import { RouterView, RouterLink } from 'vue-router';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const menuList = [
-  { path:"/", name: "home"},
-  { path:"/create", name: "create" }
+  { path:"/", name: "Home"},
+  { path:"/create", name: "Create"},
+  { path:"/chat", name: "Chat"}
 ]
 
 </script>

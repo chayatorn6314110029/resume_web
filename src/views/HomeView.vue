@@ -25,34 +25,37 @@
         </div>
       </div>
     </div>
+    
   </template>
   
   <script setup>
-  import axios from "axios";
-  import { ref, onMounted } from "vue";
-  const products = ref([]);
-  onMounted(async () => {
-    products.value = await getAllProduct();
-  });
-  const getAllProduct = async () => {
-    const API_PATH = import.meta.env.VITE_API_PATH;
-    let data = [];
-    data = await axios
-      .get(`${API_PATH}/getallproduct`)
-      .then((response) => {
-        return response.data;
-      });
-    return data;
-  };
+import axios from "axios";
+import { ref, onMounted } from "vue";
+const products = ref([]);
+onMounted(async () => {
+  products.value = await getAllProduct();
+});
 
-  const destroy = async (id) => {
+const getAllProduct = async () => {
+  const API_PATH = import.meta.env.VITE_API_PATH;
+  let data = [];
+  data = await axios
+    .get(`${API_PATH}/getallproduct`)
+    .then((response) => {
+      return response.data;
+    });
+  return data;
+};
+
+const destroy = async (id) => {
   await axios
-    .delete(`${API_PATH}/delete/${_id}`)
+    .delete(`${API_PATH}/destory/${id}`)
     .then((response) => {
       window.location.reload();
     });
 }
-  </script>
+
+</script>
   
   <style scoped>
   </style>
